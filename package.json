@@ -1,0 +1,26 @@
+{
+  "name": "tof",
+  "version": "1.0.0",
+  "description": "TOF (True or False) return only booleans from tests",
+  "main": "tof.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chles/tof.git"
+  },
+  "keywords": [
+    "javascript",
+    "boolean"
+  ],
+  "author": "CHLES",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chles/tof/issues"
+  },
+  "homepage": "https://github.com/chles/tof#readme",
+  "devDependencies": {
+    "prettier": "^1.8.1"
+  }
+}
