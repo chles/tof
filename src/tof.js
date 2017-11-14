@@ -359,7 +359,43 @@
 				CSSRule: (p, v) =>
 					tof._browser.support.CSS() &&
 					((!tof._browser.is.opera() && window.CSS.supports(p, v)) ||
-						(tof._browser.is.opera() && window.supportsCSS(p)))
+						(tof._browser.is.opera() && window.supportsCSS(p))),
+				/**
+				 * Check Audio support
+				 *
+				 * Usage :
+				 * tof._browser.support.audio('mp3')
+				 *
+				 * @param {String} s
+				 */
+				audioFormat: function(s){
+					const formats = ['mp3','mp4','aif'];
+					if(!tof._array.contain.value(formats,s)){
+						console.warn("Audio format doesn't match correct value.");
+						return false;
+					}
+					let types = {
+						mp3: 'audio/mpeg',
+						mp4: 'audio/mp4',
+						aif: 'audio/x-aiff'
+					}
+					let audio = document.createElement('audio');
+					let support = audio.canPlayType(types[type]);
+					audio.parentNode.removeChild(audio);
+
+					switch(support){
+						case 'probably':
+							return true;
+							break;
+						case 'maybe':
+							console.warn("Audio supported return flag 'maybe'");
+							return true;
+						case '':
+							return false;
+						default:
+							return false;
+					}
+				}
 			}
 		},
 

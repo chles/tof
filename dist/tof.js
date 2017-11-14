@@ -403,6 +403,42 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      */
 				CSSRule: function CSSRule(p, v) {
 					return tof._browser.support.CSS() && (!tof._browser.is.opera() && window.CSS.supports(p, v) || tof._browser.is.opera() && window.supportsCSS(p));
+				},
+				/**
+     * Check Audio support
+     *
+     * Usage :
+     * tof._browser.support.audio('mp3')
+     *
+     * @param {String} s
+     */
+				audioFormat: function audioFormat(s) {
+					var formats = ['mp3', 'mp4', 'aif'];
+					if (!tof._array.contain.value(formats, s)) {
+						console.warn("Audio format doesn't match correct value.");
+						return false;
+					}
+					var types = {
+						mp3: 'audio/mpeg',
+						mp4: 'audio/mp4',
+						aif: 'audio/x-aiff'
+					};
+					var audio = document.createElement('audio');
+					var support = audio.canPlayType(types[type]);
+					audio.parentNode.removeChild(audio);
+
+					switch (support) {
+						case 'probably':
+							return true;
+							break;
+						case 'maybe':
+							console.warn("Audio supported return flag 'maybe'");
+							return true;
+						case '':
+							return false;
+						default:
+							return false;
+					}
 				}
 			}
 		},
