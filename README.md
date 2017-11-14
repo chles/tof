@@ -17,7 +17,7 @@ tof.js supports AMD, CommonJS and Browser global.
 
 ```html
 <script src="path/to/tof.min.js"></script>
-<script type="text/javascript>
+<script type="text/javascript">
   // Global object 'tof' is available
 </script>
 ```
