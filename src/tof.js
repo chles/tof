@@ -129,16 +129,6 @@
 				 */
 				empty: a => tof._var.is.array(a) && a.length === 0,
 				in: (a, v) => (tof._var.is.array(a) && a.indexOf(v)) !== -1,
-				intersect: (a, b, v) =>
-					tof._array.is.in(a, v) && tof._array.is.in(b, v),
-				uniq: function(a, v) {
-					if (!itof._array.is.in(a, v)) return;
-
-					let pos = a.indexOf(v);
-					a.splice(pos, 1);
-
-					return tof._array.is.in(a, v) === true ? false : true;
-				}
 			},
 
 			contain: {
