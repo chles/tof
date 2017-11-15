@@ -3,6 +3,7 @@ const babel  = require('gulp-babel');
 const jshint = require('gulp-jshint');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
+const Server = require('karma').Server;
 
 
 var paths = {
@@ -21,11 +22,22 @@ gulp.task('scripts', function(){
 		.pipe(gulp.dest(paths.output))
 });
 
+
 gulp.task('lint', function(){
 	return gulp.src(paths.scripts)
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 });
+
+
+gulp.task('tests', function(done){
+	new Server({
+		configFile: __dirname + '/karma.conf.js',
+		// Override any value of karma.conf.js
+		//singleRun: true
+	}, done).start();
+});
+
 
 gulp.task('default', [
 	'lint',
