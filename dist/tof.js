@@ -148,7 +148,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     *
     * @param {Object} o
     */
-			///// hasOwnProperty already return a boolean
+			is: {
+				/**
+    * Evaluate an object prototype chain
+    *
+    * @param {Object} o
+    * @param {Constructor} C
+    */
+				instanceof: function _instanceof(o, C) {
+					return o instanceof C;
+				}
+			}
 		},
 
 		_array: {
@@ -164,17 +174,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				},
 				in: function _in(a, v) {
 					return (tof._var.is.array(a) && a.indexOf(v)) !== -1;
-				},
-				intersect: function intersect(a, b, v) {
-					return tof._array.is.in(a, v) && tof._array.is.in(b, v);
-				},
-				uniq: function uniq(a, v) {
-					if (!itof._array.is.in(a, v)) return;
-
-					var pos = a.indexOf(v);
-					a.splice(pos, 1);
-
-					return tof._array.is.in(a, v) === true ? false : true;
 				}
 			},
 

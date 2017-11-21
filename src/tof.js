@@ -116,7 +116,15 @@
 			 *
 			 * @param {Object} o
 			 */
-			///// hasOwnProperty already return a boolean
+			 is: {
+			 	/**
+				 * Evaluate an object prototype chain
+				 *
+				 * @param {Object} o
+				 * @param {Constructor} C
+				 */
+			 	instanceof: (o,C) => o instanceof C,
+			 }
 		},
 
 		_array: {
